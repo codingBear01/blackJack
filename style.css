@@ -1,0 +1,67 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-image: url("src/background.jfif");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.wrapper__cpu,
+.wrapper__user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.user-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+}
+
+.left-card {
+  background-image: url("src/redCard.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.right-card {
+  background-image: url("src/blueCard.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.inactive {
+  background-image: none;
+  pointer-events: none;
+}

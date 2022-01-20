@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Black Jack</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="wrapper__cpu">
+        <h1 class="cpu-name">CPU</h1>
+        <span class="cpu-point">??</span>
+      </div>
+
+      <div class="wrapper__user">
+        <h1 class="user-name">Me</h1>
+        <div class="user-cards">
+          <div class="left-card card">
+            <span class="left-card-pattern"></span>
+            <span class="left-card-number"></span>
+          </div>
+          <div class="right-card card">
+            <span class="right-card-pattern"></span>
+            <span class="right-card-number"></span>
+          </div>
+        </div>
+      </div>
+
+      <button class="open-user-card-button">OPEN MY CARD</button>
+      <div class="buttons">
+        <button class="die-button">DIE</button>
+        <button class="open-button">OPEN</button>
+      </div>
+      <button class="reset-button">RESET</button>
+    </div>
+    <input type="text" class="left-card-point" />
+    <input type="text" class="right-card-point" />
+    <input type="text" class="user-point-sum" />
+  </body>
+  <script src="app.js"></script>
+</html>
