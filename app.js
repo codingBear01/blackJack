@@ -1,5 +1,4 @@
 const cpuPoint = document.querySelector(".cpu-point");
-const openUserCardBtn = document.querySelector(".open-user-card-button");
 const openBtn = document.querySelector(".open-button");
 const dieBtn = document.querySelector(".die-button");
 const resetBtn = document.querySelector(".reset-button");
@@ -9,12 +8,9 @@ const rightCard = document.querySelector(".right-card");
 let leftCardPointInput = document.querySelector(".left-card-point");
 let rightCardPointInput = document.querySelector(".right-card-point");
 let userCardPointSum = document.querySelector(".user-point-sum");
+const resultMsg = document.querySelector(".result-msg");
 
-// ----- button functions 및 cpu point
-function handleOpenEvent() {
-  cpuPoint.innerText = Math.ceil(Math.random() * 21);
-} // openBtn click 시 math random값 cpu 점수로 부여
-
+// ----- button functions
 function handleDieEvent() {
   const checkDie = confirm("정말로 DIE를 선택하시겠습니까?");
   if (checkDie) {
@@ -22,7 +18,6 @@ function handleDieEvent() {
   } // confirm창의 yes click 시 page reload
 }
 
-openBtn.addEventListener("click", handleOpenEvent);
 dieBtn.addEventListener("click", handleDieEvent);
 resetBtn.addEventListener("click", () => {
   location.reload();
@@ -38,36 +33,47 @@ card div 클릭 시
 const cardPatterns = ["♠", "◆", "♣", "♥"];
 const cardNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
-let leftCardPattern = document.querySelector(".left-card-pattern");
-let leftCardNumber = document.querySelector(".left-card-number");
-let rightCardPattern = document.querySelector(".right-card-pattern");
-let rightCardNumber = document.querySelector(".right-card-number");
+function openCard() {
+  let leftCardPattern = document.querySelector(".left-card-pattern");
+  let leftCardNumber = document.querySelector(".left-card-number");
+  let rightCardPattern = document.querySelector(".right-card-pattern");
+  let rightCardNumber = document.querySelector(".right-card-number");
 
-function openUserCard() {
   leftCardPattern.innerText =
+    cardPatterns[Math.floor(Math.random() * cardPatterns.length)];
+  rightCardPattern.innerText =
     cardPatterns[Math.floor(Math.random() * cardPatterns.length)];
 
   leftCardNumber.innerText =
     cardNums[Math.floor(Math.random() * cardNums.length)];
-
-  leftCardPointInput.value = leftCardNumber.innerText;
-
-  leftCard.classList.add("inactive");
-
-  rightCardPattern.innerText =
-    cardPatterns[Math.floor(Math.random() * cardPatterns.length)];
-
-  rightCardNumber.innerHTML =
+  rightCardNumber.innerText =
     cardNums[Math.floor(Math.random() * cardNums.length)];
 
+  leftCardPointInput.value = leftCardNumber.innerText;
   rightCardPointInput.value = rightCardNumber.innerText;
 
+  leftCard.classList.add("inactive");
   rightCard.classList.add("inactive");
+
+  userCardPointSum.value =
+    +leftCardNumber.innerText + +rightCardNumber.innerText;
+  cpuPoint.innerText = Math.ceil(Math.random() * 21);
+
+  const sum = +userCardPointSum.value;
+  const cpuPoints = +cpuPoint.innerText;
+
+  if (sum > cpuPoints) {
+    resultMsg.value = "YOU WIN!";
+  } else if (sum < cpuPoints) {
+    resultMsg.value = "YOU LOSE!";
+  } else {
+    resultMsg.value = "YOU DRAW!";
+  }
+
+  // if(sum < )
 }
 
-console.log(rightCardPointInput.value);
-
-openUserCardBtn.addEventListener("click", openUserCard);
+openBtn.addEventListener("click", openCard);
 
 // 아니 그니까 랜덤해서 나온 값이 저장이 안 되고 clg 돌리면 왜 자꾸 빈칸으로 나오는 건지 도무지 알 수가 없다..!!!
 
