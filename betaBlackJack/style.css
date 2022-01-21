@@ -19,7 +19,9 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 1px solid black;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: white;
 }
 
 .wrapper__cpu,
@@ -28,14 +30,18 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 1px solid black;
+  background-color: white;
+}
+
+.cpu-point {
+  font-size: 1.5em;
 }
 
 .user-cards {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
+  background-color: white;
 }
 
 .card {
@@ -44,24 +50,50 @@ body {
   align-items: center;
   flex-direction: column;
   border: 1px solid black;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 200px;
   margin: 5px;
+  border-radius: 10px;
+  font-size: 1.5em;
 }
 
 .left-card {
   background-image: url("src/redCard.png");
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: white;
 }
 
 .right-card {
   background-image: url("src/blueCard.png");
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: white;
 }
 
 .inactive {
   background-image: none;
   pointer-events: none;
+}
+
+.point-input {
+  display: none;
+}
+
+.result-msg {
+  margin-top: 0.5em;
+  text-align: center;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.3em;
+}
+
+button {
+  margin-top: 0.5em;
+  width: 100px;
+  height: 50px;
+  background: none;
+  border: 1px solid black;
+  border-radius: 10px;
 }
